@@ -1,0 +1,9 @@
+SECRET_KEY= django--2lb2wh=22qxfe(gttd3r++gofb!eck=3#--
+DEBAG=True
+
+DB_NAME=db_name
+DB_USER=postgres
+DB_PASSWORD=123214
+DB_HOST=localhost
+DB_PORT=5432
+
