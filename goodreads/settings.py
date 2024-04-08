@@ -1,13 +1,15 @@
-from decouple import config
+import os
+from dotenv import load_dotenv
 from pathlib import Path
 
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 
-DEBUG = config("DEBUG", default=False, cast=bool)
+DEBUG = os.getenv("DEBUG", default=False)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -59,11 +61,11 @@ WSGI_APPLICATION = 'goodreads.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config("DB_NAME"),
-        'USER': config("DB_USER"),
-        'PASSWORD': config("DB_PASSWORD"),
-        'HOST': config("DB_HOST"),
-        'PORT': config("DB_PORT"),
+        'NAME': os.getenv("DB_NAME"),
+        'USER': os.getenv("DB_USER"),
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': os.getenv("DB_HOST"),
+        'PORT': os.getenv("DB_PORT"),
     }
 }
 
